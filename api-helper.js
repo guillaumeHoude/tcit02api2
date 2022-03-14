@@ -16,7 +16,7 @@ export function httpRequest (method, url, bonusOptions, body) {
     throw new Error(`Invalid url ${url}`)
   }
 
-  if (body && method !== 'post') {
+  if (body && method !== 'POST') {
     throw new Error(`Invalid use of the body parameter while using the ${method.toUpperCase()} method.`)
   }
 
@@ -94,7 +94,7 @@ export function httpsRequest (method, url, bonusOptions, body) {
     throw new Error(`Invalid url ${url}`)
   }
 
-  if (body && method !== 'post') {
+  if (body && method !== 'POST') {
     throw new Error(`Invalid use of the body parameter while using the ${method.toUpperCase()} method.`)
   }
 
@@ -110,7 +110,10 @@ export function httpsRequest (method, url, bonusOptions, body) {
   }
   
   if (body) {
-    options.headers = {'Content-Length':Buffer.byteLength(body)}
+    options.headers = {
+        //'Content-Type': 'application/json',
+        'Content-Length':Buffer.byteLength(body)
+      }
   }
 
   return new Promise((resolve, reject) => {
