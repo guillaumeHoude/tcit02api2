@@ -1,0 +1,30 @@
+{
+	"name": "api2",
+	"version": "0.0.0",
+	"description": "second API for Transport Canada it-02 process # 20-MOT-EA-HRS-98277-2",
+	"type": "module",
+	"scripts": {
+		"start": "node index.js",
+		"devstart": "nodemon --ignore ./files/ index.js",
+		"xpressDev": "nodemon --ignore ./files/ app.js",
+		"serverstart": "SET DEBUG=api2:* & npm run devstart"
+	},
+	"author": "Guillaume Houde",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.11.0",
+		"eslint-plugin-unicorn": "^41.0.0",
+		"nodemon": "^2.0.15"
+	},
+	"dependencies": {
+		"async": "^3.2.3",
+		"express": "^4.17.3",
+		"lowdb": "^3.0.0"
+	},
+	"eslintConfig": {
+		
+		"rules": {
+			"prefer-module": "error"
+		}
+	}
+}
