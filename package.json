@@ -2,7 +2,6 @@
 	"name": "api2",
 	"version": "0.0.0",
 	"description": "second API for Transport Canada it-02 process # 20-MOT-EA-HRS-98277-2",
-	"type": "module",
 	"scripts": {
 		"start": "node index.js",
 		"devstart": "nodemon --ignore ./files/ index.js",
@@ -20,6 +19,8 @@
 		"async": "^3.2.3",
 		"axios": "^0.26.1",
 		"express": "^4.17.3",
+		"http-errors": "^2.0.0",
+		"jsonfile": "^6.1.0",
 		"jsonpath-plus": "^6.0.1",
 		"lowdb": "^3.0.0"
 	},
