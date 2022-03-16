@@ -23,6 +23,7 @@ exports.get_recalls = function (req, res) {
   jsonfile.readFile(jsonFileOutput)
     .then(obj => {
       if(req.query.category !== 'undefined' && req.query.category){
+        //Filter by category
         let filtered = obj.filter(recall => {
           return recall.category.CATEGORY_ETXT.toLowerCase() === req.query.category.toLowerCase() || recall.category.CATEGORY_FTXT.toLowerCase() === req.query.category.toLowerCase()          
         })
@@ -32,7 +33,31 @@ exports.get_recalls = function (req, res) {
         res.json(obj)
       }
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error)
+      res.send(error)
+    })
+}
+
+//GET recalls
+exports.get_single = function (req, res) {
+  console.log(`GET recall # ${req.query.recallNum}`)
+  
+  jsonfile.readFile(jsonFileOutput)
+    .then(obj => {
+      if(req.query.recallNum !== 'undefined' && req.query.recallNum){
+        //Filter by category
+        let filtered = obj.filter(recall => {return recall.recallNumber === req.query.recallNum})
+
+        res.json(filtered[0])
+      }else{
+        res.send(createError(400, '400 - request requires a recall number'))
+      }
+    })
+    .catch(error => {
+      console.error(error)
+      res.send(error)
+    })
 }
 
 //POST

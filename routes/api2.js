@@ -17,6 +17,9 @@ axios.defaults.httpsAgent = https.Agent({rejectUnauthorized: false}) //otherwise
 //GET all
 router.get('/', api2_controller.get_recalls)
 
+//Get one
+router.get('/recall', api2_controller.get_single)
+
 //POST
 router.post('/', upload.single('file'), api2_controller.post_new)
 
