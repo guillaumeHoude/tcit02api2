@@ -3,9 +3,8 @@
 	"version": "0.0.0",
 	"description": "second API for Transport Canada it-02 process # 20-MOT-EA-HRS-98277-2",
 	"scripts": {
-		"start": "node index.js",
-		"devstart": "nodemon --ignore ./files/ index.js",
-		"xpressDev": "nodemon --ignore ./files/ app.js",
+		"start": "node app.js",
+		"devstart": "nodemon --ignore ./files/ app.js",
 		"serverstart": "SET DEBUG=api2:* & npm run devstart"
 	},
 	"author": "Guillaume Houde",
