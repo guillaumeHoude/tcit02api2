@@ -20,7 +20,7 @@ axios.defaults.httpsAgent = https.Agent({rejectUnauthorized: false}) //otherwise
 /// ROUTES ///
 //GET recalls
 exports.get_recalls = function (req, res) {
-  console.log(`GET recalls ${(req.query.category ? req.query.category : '')}`)
+  //console.log(`GET recalls ${(req.query.category ? req.query.category : '')}`)
   
   jsonfile.readFile(jsonFileOutput)
     .then(obj => {
@@ -47,7 +47,7 @@ exports.get_recalls = function (req, res) {
 
 //GET recalls
 exports.get_single = function (req, res) {
-  console.log(`GET recall # ${req.query.recallNum}`)
+  //console.log(`GET recall # ${req.query.recallNum}`)
   
   jsonfile.readFile(jsonFileOutput)
     .then(obj => {
@@ -68,7 +68,7 @@ exports.get_single = function (req, res) {
 
 //POST
 exports.post_new = function (req, res) {
-  console.log('POST file')
+  //console.log('POST file')
   if(req.file !== 'undefined' && req.file && req.file.buffer.length > 0){
     let buf = Buffer.from(req.file.buffer, 'ascii')
     let recalls = JSON.parse(buf.toString())
@@ -82,11 +82,11 @@ exports.post_new = function (req, res) {
     
     jsonfile.writeFile(jsonFileInput, recalls)
       .then(result => {
-        console.log(`file received`)
+        //console.log(`file received`)
         res.status(201).send('input file saved')
       })
       .catch(error => {
-        console.error(error)
+        //console.error(error)
         res.status(500).send(error)
       })
    
@@ -111,7 +111,7 @@ exports.post_new = function (req, res) {
           .catch(error => console.error(error))
     })
   }else{
-    console.log('here 406')
+    //console.log('here 406')
     res.status(406).send('406 - NOT Acceptable')
   }
 }

@@ -1,4 +1,5 @@
 const express = require('express')
+const logger = require('morgan')
 const createError = require('http-errors')
 const api2Router = require('./routes/api2')
 
@@ -8,6 +9,8 @@ const port = 3002
 
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
+app.use(logger('dev'))
+
 
 /// REST API2 ///
 app.use('/api2', api2Router)
